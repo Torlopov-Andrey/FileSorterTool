@@ -2,6 +2,8 @@
 
 Just simple tool for sort files in current folder.
 
+![About](https://github.com/Torlopov-Andrey/FileSorterTool/blob/master/sort_demo.gif)
+
 # Install
 
 * Clone source
@@ -45,5 +47,5 @@ If file already exists, SorterTool add index.
 
 # Contacts
 
-email: torlopov.andrey@gmail.com
+email: torlopov.andrey@gmail.com </br>
 skype: torlopov.andrey
