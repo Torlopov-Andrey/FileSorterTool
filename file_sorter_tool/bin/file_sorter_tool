@@ -1,0 +1,13 @@
+#!/usr/bin/env ruby
+
+require 'file_sorter_tool'
+
+path = ARGV[0]
+if path == nil || path.empty?
+  puts "v. #{FileSorterTool::VERSION}.\nTool makes directory for each file extenfion and move files into this directories."
+  puts "file_sorter_tool [PATH]"
+  puts "example:\nfile_sorter_tool ~/Downloads"
+else
+  Dir.chdir(path)
+  FileSorterTool::process_dir path
+end

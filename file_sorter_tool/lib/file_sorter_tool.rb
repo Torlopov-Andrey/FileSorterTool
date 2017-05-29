@@ -1,7 +1,7 @@
 require_relative 'file_sorter_tool/file_sorter.rb'
 
 module FileSorterTool
-  VERSION = '0.1.0'
+  VERSION = '0.2.1'
 
   def self.version
     version
@@ -13,7 +13,6 @@ module FileSorterTool
   end
 
   def self.process_dir path
-    p path
     Dir.chdir(path)
     Dir['*'].each.with_index do |file, index|
       FileSorterTool::process_file file
