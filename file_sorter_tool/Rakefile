@@ -1,0 +1,23 @@
+require 'file_sorter_tool'
+
+task default: 'sort:help'
+
+namespace :sort do
+
+  desc 'help'
+  task :help do
+    puts "v. #{FileSorterTool::VERSION}.\nFiles in current directory sorter.\nTool makes directory for each file extenfion and move files into this directories."
+  end
+
+  desc 'sort files'
+  task :do,  [:path] do |t, args|
+    path = args[:path]
+    if path == nil || path.empty?
+      puts "path is empty!"
+    else
+      Dir.chdir(path)
+      FileSorterTool::process_dir path
+    end
+  end
+
+end

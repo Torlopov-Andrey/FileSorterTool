@@ -1,7 +1,7 @@
 require 'active_support/core_ext/string'
 require 'fileutils'
 
-module DownloadSorter
+module FileSorterTool
 
   class FileSorter
 

@@ -6,26 +6,27 @@ Just simple tool for sort files in current folder.
 
 # Install
 
-* Clone source
+* setup gem
 ```
-git clone https://github.com/Torlopov-Andrey/FileSorterTool.git
+gem install file_sorter_tool
 ```
-* Edit folder path in bash script.  Change `PATH` to folderpath where locate downloaded `Rakefile`, for example, if I clone project in `~/Tools/`, then I write this path `~/Tools/downloads_sorter/`
+
+* Edit folder path in bash script.  Change `PATH` to folderpath where locate downloaded `Rakefile`, for example, if I clone project in `~/Tools/`, then I write this path `~/Tools/folder_sorter/`
 
 ```bash
 #!/bin/bash
 cwd=$(pwd)
 #cd PATH
-rake ds:sort[$cwd]
+rake sort:do[$cwd]
 ```
 
-* For convinience, I made alias for comand in bash_profile.
+* For  convenience, I made alias for command in bash_profile.
 
 ```
 nano ~/.bash_profile
 ```
 
-Write alias. Change path, into path where your bash script locate. For example, if I clone project in `~/Tools/`, and create bash script (`download_sort.bash`) in this directory, I write this path `~/Tools/downloads_sorter/download_sort.bash`
+Write alias. Change path, into path where your bash script locate. For example, if I clone project in `~/Tools/`, and create bash script (`download_sort.bash`) in this directory, I write this path `~/Tools/downloads_sorter/folder_sorter.bash`
 **(Most often I use this tool to sort download files)**
 ```bash
 alias download_sort="sh PATH"
@@ -39,7 +40,7 @@ alias download_sort="sh PATH"
 2. Write your alias command (in our case it's "download_sort").
 3. That's all
 
-Tools create folder with file extantion name and move files into this folder.
+Tools create folder with file extention name and move files into this folder.
 
 **Important to know!**
 
