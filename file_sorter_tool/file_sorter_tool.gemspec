@@ -1,6 +1,8 @@
+require_relative 'lib/file_sorter_tool/version'
+
 Gem::Specification.new do |spec|
   spec.name          = 'file_sorter_tool'
-  spec.version       = '0.3.0'
+  spec.version       = FileSorterTool.version
   spec.date          = '2017-05-29'
   spec.summary       = "Sort files in selected directory"
   spec.description   = "A simple gem that sorting files in selected directory."
@@ -9,11 +11,12 @@ Gem::Specification.new do |spec|
   spec.homepage      = 'https://github.com/Torlopov-Andrey/FileSorterTool'
   spec.license       = 'MIT'
 
-  spec.files         = [
-    "lib/file_sorter_tool.rb",
-    "lib/file_sorter_tool/file_sorter.rb",
-    "Rakefile"
+  spec.files         = %w[
+    lib/file_sorter_tool.rb
+    lib/file_sorter_tool/file_sorter.rb
+    lib/file_sorter_tool/version.rb
   ]
-  spec.requirements = %w[]
-  spec.executables.push 'file_sorter_tool'
+
+  # spec.requirements = %w[]
+  spec.executables =  ["file_sorter_tool"]
 end

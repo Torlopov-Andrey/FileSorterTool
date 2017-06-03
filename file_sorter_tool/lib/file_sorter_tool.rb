@@ -1,11 +1,7 @@
-require_relative 'file_sorter_tool/file_sorter.rb'
+require_relative './file_sorter_tool/file_sorter'
+require_relative './file_sorter_tool/version'
 
 module FileSorterTool
-  VERSION = '0.3.0'
-
-  def self.version
-    version
-  end
 
   def self.process_file file_name
     @file_sorter = FileSorterTool::FileSorter.new file_name

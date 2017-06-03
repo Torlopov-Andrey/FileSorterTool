@@ -2,9 +2,8 @@ require 'active_support/core_ext/string'
 require 'fileutils'
 
 module FileSorterTool
-
   class FileSorter
-
+    
     def process
       return if File.directory?(@from_path)
       to_file_path = "#{@to_dir_path}/#{@from_file}"
