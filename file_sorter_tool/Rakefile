@@ -1,23 +1,12 @@
 require 'file_sorter_tool'
 
-task default: 'sort:help'
+# task default: 'sort:build'
 
 namespace :sort do
 
-  desc 'help'
-  task :help do
-    puts "v. #{FileSorterTool::VERSION}.\nFiles in current directory sorter.\nTool makes directory for each file extenfion and move files into this directories."
-  end
-
-  desc 'sort files'
-  task :do,  [:path] do |t, args|
-    path = args[:path]
-    if path == nil || path.empty?
-      puts "path is empty!"
-    else
-      Dir.chdir(path)
-      FileSorterTool::process_dir path
-    end
-  end
+  # desc 'Build and reinstall gem'
+  # task :build do
+  #   find . -name "file_sorter_tool-*" -delete
+  # end
 
 end

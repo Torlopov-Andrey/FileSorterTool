@@ -1,7 +1,7 @@
 require_relative 'file_sorter_tool/file_sorter.rb'
 
 module FileSorterTool
-  VERSION = '0.2.1'
+  VERSION = '0.3.0'
 
   def self.version
     version

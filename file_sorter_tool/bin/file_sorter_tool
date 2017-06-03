@@ -1,13 +1,48 @@
 #!/usr/bin/env ruby
 
 require 'file_sorter_tool'
+require 'optparse'
 
-path = ARGV[0]
-if path == nil || path.empty?
-  puts "v. #{FileSorterTool::VERSION}.\nTool makes directory for each file extenfion and move files into this directories."
-  puts "file_sorter_tool [PATH]"
-  puts "example:\nfile_sorter_tool ~/Downloads"
-else
-  Dir.chdir(path)
-  FileSorterTool::process_dir path
+Options = Struct.new(:dir)
+
+class Parser
+  def self.parse options = ["-h"]
+
+    args = Options.new()
+
+    opt_parser = OptionParser.new do |opts|
+      opts.banner = "FileSorterTool v.#{FileSorterTool::VERSION}\n\nUsage: file_sorter_tool -p PATH\nexample: \'file_sorter_tool ~/Downloads\'\n\nOptions:\n"
+
+      opts.on("-h", "--help", "Prints this help") do
+        puts opts
+        exit
+      end
+
+      opts.on("-p", "--path PATH", "Path to directory which need organize") do |path|
+        args.dir = path
+      end
+
+      opts.on("-v","--version", "Show current version") do
+        puts "v.#{FileSorterTool::VERSION}"
+        exit
+      end
+    end
+
+    begin
+      opt_parser.parse! options
+      mandatory = [:dir]
+      missing = mandatory.select{ |param| args[param].nil? }
+      raise OptionParser::MissingArgument.new(missing.join(', ')) unless missing.empty?
+    rescue OptionParser::InvalidOption, OptionParser::MissingArgument, OptionParser::InvalidOption.superclass
+      puts $!.to_s
+      exit
+    end
+
+    return args
+  end
 end
+
+options = Parser.parse ARGV.empty? ?  %w[-h] : ARGV
+path = options[:dir]
+Dir.chdir(path)
+FileSorterTool::process_dir path

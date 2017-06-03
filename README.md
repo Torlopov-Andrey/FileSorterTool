@@ -11,8 +11,17 @@ gem install file_sorter_tool
 # How it use
 
 ``` bash
-  file_sorter_tool [FOLDER_NAME] #~/Downloads for example
+  file_sorter_tool -p [FOLDER_NAME] #~/Downloads for example  
 ```
+
+``` bash
+  file_sorter_tool -v   # => tool version
+```
+
+``` bash
+  file_sorter_tool -h   # => help
+```
+
 
 Tools create folder with file extention name and move files into this folder.
 

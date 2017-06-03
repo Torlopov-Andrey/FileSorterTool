@@ -1,6 +1,6 @@
 Gem::Specification.new do |spec|
   spec.name          = 'file_sorter_tool'
-  spec.version       = '0.2.4'
+  spec.version       = '0.3.0'
   spec.date          = '2017-05-29'
   spec.summary       = "Sort files in selected directory"
   spec.description   = "A simple gem that sorting files in selected directory."
