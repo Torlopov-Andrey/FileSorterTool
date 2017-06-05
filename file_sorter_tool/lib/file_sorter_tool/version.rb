@@ -6,7 +6,7 @@ module FileSorterTool
 
     MAJOR = '0'
     MINOR = '3'
-    PATCH = '3'
+    PATCH = '8'
 
     def current_version
       [MAJOR, MINOR, PATCH].join(".")

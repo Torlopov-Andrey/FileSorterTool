@@ -18,5 +18,5 @@ Gem::Specification.new do |spec|
   ]
 
   # spec.requirements = %w[]
-  spec.executables =  ["file_sorter_tool"]
+  spec.executables  << 'file_sorter_tool'
 end

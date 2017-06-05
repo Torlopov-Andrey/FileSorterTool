@@ -6,7 +6,8 @@ namespace :app do
 
   desc 'Uninstall gem'
   task :uninstall do
-    `gem uninstall --force file_sorter_tool`
+    `gem uninstall -x file_sorter_tool`
+    `rm file_sorter_tool-*.gem`
     puts "uninstall...[OK]"
   end
 
@@ -27,7 +28,7 @@ namespace :app do
   DESC
   task :next_version do
     path = File.expand_path '../lib/file_sorter_tool/version.rb', __FILE__
-    
+
     file = File.open path
     file_content = file.read
     file.close
@@ -39,16 +40,11 @@ namespace :app do
     file_content.gsub! /PATCH = '.'/, "PATCH = '#{next_version[2]}'"
 
     File.open(path, 'w') { |file| file.write file_content}
+    puts "Next version generate...[OK]"
   end
 
   desc 'Update gem (reinstall)'
   task update: [:uninstall, :next_version, :build, :install] do
-    current_version = `gem list| grep file_sorter_tool | awk _F ' ' '{print $2}'`.strip.delete "()"
-    gem_version = `ls file_sorter_tool-*.gem | awk -F '-' '{print $2}'`.strip.delete("gem").chop
-    if gem_version > current_version
-
-    end
-    `rm file_sorter_tool-*.gem`
+      puts "Reinstall...[OK]"
   end
-
 end

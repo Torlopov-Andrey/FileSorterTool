@@ -1,6 +1,7 @@
 #!/usr/bin/env ruby
 
 require 'optparse'
+
 require 'file_sorter_tool'
 
 Options = Struct.new(:dir)
@@ -11,7 +12,7 @@ class Parser
     args = Options.new()
 
     opt_parser = OptionParser.new do |opts|
-      opts.banner = "FileSorterTool v.#{FileSorterTool.version}\n\nUsage: file_sorter_tool -p PATH\nexample: \'file_sorter_tool ~/Downloads\'\n\nOptions:\n"
+      opts.banner = "FileSorterTool v.#{FileSorterTool.version}\n\nUsage: file_sorter_tool -p PATH\nexample: \'file_sorter_tool -p ~/Downloads\'\n\nOptions:\n"
 
       opts.on("-h", "--help", "Prints this help") do
         puts opts
